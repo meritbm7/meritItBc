@@ -724,6 +724,7 @@ h2 {
     position: relative;
     letter-spacing: -1.5px;
     margin: 0 0 0 auto;
+    margin-top: -80px;
 }
 
 .section-04 .graph-wrap ul {
