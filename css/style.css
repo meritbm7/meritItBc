@@ -1042,51 +1042,51 @@ h2 {
     background-size: contain;
 }
 
-.floating-wrap ul li:nth-child(1) {
+.floating-wrap ul li.call {
     background-color: #009CDE;
     border-radius: 15px 0 0 0;
 }
 
-.floating-wrap ul li:nth-child(1) a:after {
+.floating-wrap ul li.call a:after {
     width: 28px;
     height: 28px;
     bottom: 15px;
     background-image: url('../image/floating-01.png');
 }
 
-.floating-wrap ul li:nth-child(2) {
+.floating-wrap ul li.kakao {
     background-color: #F2D410;
 }
 
-.floating-wrap ul li:nth-child(2) a span {
+.floating-wrap ul li.kakao a span {
     color: #3C1F21;
 }
 
-.floating-wrap ul li:nth-child(2) a:after {
+.floating-wrap ul li.kakao a:after {
     width: 52px;
     height: 52px;
     bottom: 18px;
     background-image: url('../image/floating-02.png');
 }
 
-.floating-wrap ul li:nth-child(3) {
+.floating-wrap ul li.naver {
     background-color: #30A846;
 }
 
-.floating-wrap ul li:nth-child(3) a:after {
+.floating-wrap ul li.naver a:after {
     width: 35px;
     height: 32px;
     bottom: 18px;
     background-image: url('../image/floating-03.png');
 }
 
-.floating-wrap ul li:nth-child(4) {
+.floating-wrap ul li.form {
     background-color: #E9A5AA;
     border-radius: 0 0 0 15px;
     color: #2b2b2b;
 }
 
-.floating-wrap ul li:nth-child(4) a:after {
+.floating-wrap ul li.form a:after {
     width: 37px;
     height: 37px;
     bottom: 20px;
@@ -1297,25 +1297,25 @@ h2 {
         font-size: 15px;
     }
 
-    .floating-wrap ul li:nth-child(1) a:after {
+    .floating-wrap ul li.call a:after {
         width: 38px;
         height: 38px;
         bottom: 23px;
     }
 
-    .floating-wrap ul li:nth-child(2) a:after {
+    .floating-wrap ul li.kakao a:after {
         width: 62px;
         height: 62px;
         bottom: 28px;
     }
 
-    .floating-wrap ul li:nth-child(3) a:after {
+    .floating-wrap ul li.naver a:after {
         width: 40px;
         height: 40px;
         bottom: 26px;
     }
 
-    .floating-wrap ul li:nth-child(4) a:after {
+    .floating-wrap ul li.form a:after {
         width: 46px;
         height: 46px;
         bottom: 25px;
