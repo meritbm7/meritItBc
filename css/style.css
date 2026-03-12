@@ -15,7 +15,7 @@
 }
 
 .mo-show {
-    display: none;
+    display: none !important;
 }
 
 
