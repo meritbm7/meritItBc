@@ -1250,7 +1250,7 @@ h2 {
     }
 
     .mo-show {
-        display: block;
+        display: block !important;
     }
 
     .flex {
