@@ -1674,6 +1674,10 @@ h2 {
         position: initial;
     }
 
+    .bnr-wrap .banner .btn-wrap:hover {
+        background-color: #2B2B2B;
+    }
+
     .bnr-wrap .banner .btn-wrap::before {
         width: 160px;
         height: 160px;
@@ -1789,4 +1793,3 @@ h2 {
 @media (max-width: 820px) {
   
 }
-
