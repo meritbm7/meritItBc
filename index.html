@@ -192,7 +192,6 @@
     
 
 
-
 <!-- 인증서 영역 -->
  <div class="common-wrap">
     <div class="certi-wrap">
@@ -567,5 +566,76 @@
 
 </script>
 
+<!-- ▼▼▼ 메리트 접속 팝업(이미지 2장 슬라이드): 하루 닫기 쿠키 — 이 위치(bcmo.co.kr/index.html의 </body> 앞) ▼▼▼ -->
+<style>
+#merit-popup-wrap{position:fixed; inset:0; z-index:99999; display:none;
+  align-items:center; justify-content:center; background:rgba(16,27,36,.55); padding:20px}
+#merit-popup-wrap.open{display:flex}
+#merit-popup{position:relative; width:460px; max-width:92vw; background:#fff;
+  border-radius:16px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.merit-pop-banner{position:relative; display:block; width:100%; background:#0F1B24}
+.merit-pop-banner img{display:none; width:100%; height:auto}
+.merit-pop-banner img.on{display:block; animation:meritPopFade .5s ease}
+@keyframes meritPopFade{from{opacity:0}to{opacity:1}}
+.merit-pop-dots{position:absolute; bottom:10px; left:0; right:0; display:flex;
+  justify-content:center; gap:7px; z-index:1}
+.merit-pop-dots span{width:8px; height:8px; border-radius:50%;
+  background:rgba(255,255,255,.5); cursor:pointer}
+.merit-pop-dots span.on{background:#fff}
+.merit-pop-x{position:absolute; top:10px; right:10px; width:32px; height:32px; border:none;
+  border-radius:50%; background:rgba(13,20,27,.55); color:#fff; font-size:14px; cursor:pointer; z-index:2}
+.merit-pop-foot{display:flex; justify-content:space-between; align-items:center;
+  padding:11px 16px; background:#F2F5F8; border-top:1px solid #D8DEE6}
+.merit-pop-foot label{display:flex; align-items:center; gap:7px; font-size:12.5px; color:#4A5563; cursor:pointer}
+.merit-pop-foot button{border:none; background:none; font:inherit; font-size:12.5px; font-weight:700; color:#8A93A0; cursor:pointer}
+</style>
+
+<div id="merit-popup-wrap">
+  <div id="merit-popup">
+    <a class="merit-pop-banner" href="https://form.naver.com/response/96JdrzUJwldafny1WIRz_w">
+      <!-- 광고 이미지 2장 (./image/ 폴더에 업로드) -->
+      <img class="on" src="./image/popup-banner1.jpg" alt="팝업 배너 1">
+      <img src="./image/popup-banner2.jpg" alt="팝업 배너 2">
+      <span class="merit-pop-dots"><span class="on"></span><span></span></span>
+      <button type="button" class="merit-pop-x" aria-label="닫기">&times;</button>
+    </a>
+    <div class="merit-pop-foot">
+      <label><input type="checkbox" id="meritPopToday"> 오늘 하루 이 창을 열지 않음</label>
+      <button type="button" id="meritPopClose">닫기</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var wrap=document.getElementById('merit-popup-wrap');
+  if(!wrap) return;
+  var COOKIE='merit_popup_hide';
+  function getCookie(n){var m=document.cookie.match('(^|;)\s*'+n+'\s*=\s*([^;])');return m?m.pop():''}
+  function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+d*864e5);
+    document.cookie=n+'='+v+';expires='+e.toUTCString()+';path=/'}
+  if(!getCookie(COOKIE)) wrap.classList.add('open');
+  function close(){
+    wrap.classList.remove('open');
+    if(document.getElementById('meritPopToday').checked) setCookie(COOKIE,'1',1);
+  }
+  document.getElementById('meritPopClose').addEventListener('click',close);
+  document.querySelector('.merit-pop-x').addEventListener('click',close);
+  wrap.addEventListener('click',function(e){if(e.target===wrap)close();});
+  /* 배너 자동 슬라이드 (3초) + 점 클릭 전환 */
+  var slides=wrap.querySelectorAll('.merit-pop-banner img'),
+      dots=wrap.querySelectorAll('.merit-pop-dots span'), cur=0, timer=null;
+  function show(i){cur=(i+slides.length)%slides.length;
+    slides.forEach(function(el,k){slides[k].classList.toggle('on',k===cur)});
+    dots.forEach(function(el,k){dots[k].classList.toggle('on',k===cur)});}
+  function start(){timer=setInterval(function(){show(cur+1)},3000)}
+  function stop(){clearInterval(timer)}
+  dots.forEach(function(d,k){d.addEventListener('click',function(){show(k);stop();start();})});
+  start();
+})();
+</script>
+<!-- ▲▲▲ 메리트 접속 팝업 끝 ▲▲▲ -->
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
